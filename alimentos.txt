@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "alimento": "arroz",
+    "calorias": 130,
+    "lipidos": 0.3,
+    "carboidratos": 28,
+    "proteinas": 2.7
+  },
+  {
+    "id": 2,
+    "alimento": "massa",
+    "calorias": 131,
+    "lipidos": 1.1,
+    "carboidratos": 25,
+    "proteinas": 5
+  },
+  {
+    "id": 3,
+    "alimento": "bife",
+    "calorias": 271,
+    "lipidos": 19,
+    "carboidratos": 0,
+    "proteinas": 25
+  },
+  {
+    "id": 4,
+    "alimento": "batata, cozida",
+    "calorias": 87,
+    "lipidos": 0.1,
+    "carboidratos": 20.1,
+    "proteinas": 1.9
+  },
+  {
+    "id": 5,
+    "alimento": "ovo, cozido",
+    "calorias": 155,
+    "lipidos": 11,
+    "carboidratos": 1.1,
+    "proteinas": 13
+  },
+  {
+    "id": 6,
+    "alimento": "atum",
+    "calorias": 130,
+    "lipidos": 0.6,
+    "carboidratos": 0,
+    "proteinas": 29
+  },
+  {
+    "id": 7,
+    "alimento": "leite",
+    "calorias": 42,
+    "lipidos": 1,
+    "carboidratos": 5,
+    "proteinas": 3.4
+  }
+]

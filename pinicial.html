@@ -1,0 +1,353 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="javascript.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+       <h3>Total<h3>
+       <table>
+         <tbody>
+           <tr>
+             <th>Calorias</th>
+             <th>Lipidos</th>
+             <th>Carboidratos</th>
+             <th>Proteinas</th>
+           </tr>
+           <tr id="counterTotal">
+             <th>0</th>
+             <th>0</th>
+             <th>0</th>
+             <th>0</th>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+    <h4 style="display: inline">Refeicao 1</h4>
+    <button style="display: inline" onclick="reset(0)">Reset</button>
+    <div class="container" id="form0">
+      <table>
+        <tbody>
+          <tr>
+            <th>Calorias</th>
+            <th>Lipidos</th>
+            <th>Carboidratos</th>
+            <th>Proteinas</th>
+          </tr>
+          <tr class="counter">
+            <th>0</th>
+            <th>0</th>
+            <th>0</th>
+            <th>0</th>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Adicionar0">Adicionar alimentos</button>
+    </div>
+    <h4 style="display: inline">Refeicao 2</h4>
+    <button style="display: inline" onclick="reset(1)">Reset</button>
+    <div class="container" id="form1">
+      <table>
+        <tbody>
+          <tr>
+            <th>Calorias</th>
+            <th>Lipidos</th>
+            <th>Carboidratos</th>
+            <th>Proteinas</th>
+          </tr>
+          <tr class="counter">
+            <th>0</th>
+            <th>0</th>
+            <th>0</th>
+            <th>0</th>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Adicionar1">Adicionar alimentos</button>
+    </div>
+    <div class="modal fade" id="Adicionar0" tabindex="-1" role="dialog" aria-labelledby="#Adicionar0" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Adicionar0Label">Adiciona alimentos</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div>
+                <table class="table-alimentos">
+                  <tbody><tr>
+                    <th>Id</th>
+                    <th>Alimento</th>
+                    <th>Calorias</th>
+                    <th>Lipidos</th>
+                    <th>Carboidratos</th>
+                    <th>Proteinas</th>
+                 </tr></tbody>
+              </table>
+            </div>
+            <form id="qt" style="display:none;">
+              <p>Quantidade?<input type="number" value=100 id="num"></p>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="adicionarAlimento(0)">Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="Adicionar1" tabindex="-1" role="dialog" aria-labelledby="#Adicionar1" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Adicionar1Label">Adiciona alimentos</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div>
+                <table class="table-alimentos">
+                  <tbody><tr>
+                    <th>Id</th>
+                    <th>Alimento</th>
+                    <th>Calorias</th>
+                    <th>Lipidos</th>
+                    <th>Carboidratos</th>
+                    <th>Proteinas</th>
+                 </tr></tbody>
+              </table>
+            </div>
+            <form id="qt" style="display:none;">
+              <p>Quantidade?<input type="number" value=100 id="num"></p>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="adicionarAlimento(1)">Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    var tamanho = 7;
+
+    function reset(nr) {
+      while(document.getElementById("form"+nr).getElementsByClassName("alimento").length != 0) {
+        document.getElementById("form"+nr).getElementsByClassName("alimento")[0].remove();
+      }
+      var j=1;
+      for(i=0; i<4; i++) {
+        document.getElementsByClassName("counter")[nr].children[i].innerHTML = 0;
+        $("#counterTotal th:nth-child("+j+")").html(parseFloat(document.getElementsByClassName("counter")[0].children[i].innerHTML) + parseFloat(document.getElementsByClassName("counter")[1].children[i].innerHTML));
+        j++;
+      }
+    }
+
+    function selectAlimento() {
+         if(this.style.backgroundColor == "black") {
+           this.style.backgroundColor = "white";
+           document.getElementById("qt").style.display = "none";
+         }else {
+           this.style.backgroundColor = "black";
+           document.getElementById("qt").style.display = "block";
+         }
+     }
+
+    function adicionarAlimento(nr) {
+       for(i=0; i< tamanho; i++) {
+         var x = document.getElementsByClassName(i)[nr];
+         if(x.style.backgroundColor == "black") {
+            var y = document.createElement("p");
+            y.setAttribute("class", "alimento");
+
+            var qty = document.getElementById("num").value;
+            var z = document.createTextNode(x.children[1].innerHTML+"("+qty+"g)");
+            y.appendChild(z);
+
+            var d = document.getElementById("form"+nr);
+            d.appendChild(y);
+
+            var cal = parseFloat(document.getElementsByClassName("counter")[nr].children[0].innerHTML) + (parseFloat(x.children[2].innerHTML)*qty/100);
+            var lip = parseFloat(document.getElementsByClassName("counter")[nr].children[1].innerHTML) + (parseFloat(x.children[3].innerHTML)*qty/100);
+            var carb = parseFloat(document.getElementsByClassName("counter")[nr].children[2].innerHTML) + (parseFloat(x.children[4].innerHTML)*qty/100);
+            var prot = parseFloat(document.getElementsByClassName("counter")[nr].children[3].innerHTML) + (parseFloat(x.children[5].innerHTML)*qty/100);
+
+            document.getElementsByClassName("counter")[nr].children[0].innerHTML = cal;
+            document.getElementsByClassName("counter")[nr].children[1].innerHTML = lip;
+            document.getElementsByClassName("counter")[nr].children[2].innerHTML = carb;
+            document.getElementsByClassName("counter")[nr].children[3].innerHTML = prot;
+
+            $("#counterTotal th:nth-child(1)").html((parseFloat(x.children[2].innerHTML)*qty/100) + parseFloat(document.getElementById("counterTotal").children[0].innerHTML));
+            $("#counterTotal th:nth-child(2)").html((parseFloat(x.children[3].innerHTML)*qty/100) + parseFloat(document.getElementById("counterTotal").children[1].innerHTML));
+            $("#counterTotal th:nth-child(3)").html((parseFloat(x.children[4].innerHTML)*qty/100) + parseFloat(document.getElementById("counterTotal").children[2].innerHTML));
+            $("#counterTotal th:nth-child(4)").html((parseFloat(x.children[5].innerHTML)*qty/100) + parseFloat(document.getElementById("counterTotal").children[3].innerHTML));
+
+            x.style.backgroundColor = "white";
+         }
+       }
+     }
+
+    function getAlimentos() {
+      var xmlhttp = new XMLHttpRequest();
+
+
+     xmlhttp.onreadystatechange = function() {
+       if (this.readyState == 4 && this.status == 200) {
+         var arrayAlimentos = JSON.parse(this.responseText);
+         fillAlimentos(arrayAlimentos);
+       }
+     };
+
+     xmlhttp.open("GET", "alimentos.txt", true);
+     xmlhttp.send();
+    }
+
+    getAlimentos();
+
+    function fillAlimentos(arrayAlimentos) {
+      var table0 = document.getElementsByClassName("table-alimentos")[0];
+      var table1 = document.getElementsByClassName("table-alimentos")[1];
+      console.log(table0);
+      console.log(table1);
+      let tam = arrayAlimentos.length;
+      for(i=0; i<tam; i++) {
+        console.log(arrayAlimentos[i]);
+        var row = table0.insertRow();
+        row.addEventListener("click", selectAlimento);
+        row.setAttribute("class", i);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+
+        cell1.innerHTML = arrayAlimentos[i].id;
+        cell2.innerHTML = arrayAlimentos[i].alimento;
+        cell3.innerHTML = arrayAlimentos[i].calorias;
+        cell4.innerHTML = arrayAlimentos[i].lipidos;
+        cell5.innerHTML = arrayAlimentos[i].carboidratos;
+        cell6.innerHTML = arrayAlimentos[i].proteinas;
+
+        var row1 = table1.insertRow();
+        row1.addEventListener("click", selectAlimento);
+        row1.setAttribute("class", i);
+        var cell11 = row1.insertCell(0);
+        var cell12 = row1.insertCell(1);
+        var cell13 = row1.insertCell(2);
+        var cell14 = row1.insertCell(3);
+        var cell15 = row1.insertCell(4);
+        var cell16 = row1.insertCell(5);
+
+        cell11.innerHTML = arrayAlimentos[i].id;
+        cell12.innerHTML = arrayAlimentos[i].alimento;
+        cell13.innerHTML = arrayAlimentos[i].calorias;
+        cell14.innerHTML = arrayAlimentos[i].lipidos;
+        cell15.innerHTML = arrayAlimentos[i].carboidratos;
+        cell16.innerHTML = arrayAlimentos[i].proteinas;
+      }
+    }
+
+    window.onbeforeunload = function() {
+       localStorage.setItem("tcal", document.getElementById("counterTotal").children[0].innerHTML);
+       localStorage.setItem("tlip", document.getElementById("counterTotal").children[1].innerHTML);
+       localStorage.setItem("tcarb", document.getElementById("counterTotal").children[2].innerHTML);
+       localStorage.setItem("tprot", document.getElementById("counterTotal").children[3].innerHTML);
+
+
+       localStorage.setItem("t1cal", document.getElementsByClassName("counter")[0].children[0].innerHTML);
+       localStorage.setItem("t1lip", document.getElementsByClassName("counter")[0].children[1].innerHTML);
+       localStorage.setItem("t1carb", document.getElementsByClassName("counter")[0].children[2].innerHTML);
+       localStorage.setItem("t1prot", document.getElementsByClassName("counter")[0].children[3].innerHTML);
+
+       localStorage.setItem("t2cal", document.getElementsByClassName("counter")[1].children[0].innerHTML);
+       localStorage.setItem("t2lip", document.getElementsByClassName("counter")[1].children[1].innerHTML);
+       localStorage.setItem("t2carb", document.getElementsByClassName("counter")[1].children[2].innerHTML);
+       localStorage.setItem("t2prot", document.getElementsByClassName("counter")[1].children[3].innerHTML);
+
+       localStorage.setItem("tam1", document.getElementById("form0").getElementsByClassName("alimento").length);
+       localStorage.setItem("tam2", document.getElementById("form1").getElementsByClassName("alimento").length);
+
+       for(i=0; i<document.getElementById("form0").getElementsByClassName("alimento").length; i++) {
+         localStorage.setItem("t1alimento"+i, document.getElementById("form0").getElementsByClassName("alimento")[i].innerHTML);
+       }
+
+       for(i=0; i<document.getElementById("form1").getElementsByClassName("alimento").length; i++) {
+         localStorage.setItem("t2alimento"+i, document.getElementById("form1").getElementsByClassName("alimento")[i].innerHTML);
+       }
+    }
+
+    window.onload = function() {
+      var tcal = localStorage.getItem("tcal");
+      var tlip = localStorage.getItem("tlip");
+      var tcarb = localStorage.getItem("tcarb");
+      var tprot = localStorage.getItem("tprot");
+
+      if(tcal != null && tlip!= null && tcarb!=null && tprot!=null) {
+        document.getElementById("counterTotal").children[0].innerHTML = tcal;
+        document.getElementById("counterTotal").children[1].innerHTML = tlip;
+        document.getElementById("counterTotal").children[2].innerHTML = tcarb;
+        document.getElementById("counterTotal").children[3].innerHTML = tprot;
+      }
+
+      var t1cal = localStorage.getItem("t1cal");
+      var t1lip = localStorage.getItem("t1lip");
+      var t1carb = localStorage.getItem("t1carb");
+      var t1prot = localStorage.getItem("t1prot");
+
+      var t2cal = localStorage.getItem("t2cal");
+      var t2lip = localStorage.getItem("t2lip");
+      var t2carb = localStorage.getItem("t2carb");
+      var t2prot = localStorage.getItem("t2prot");
+
+      var tam1 = localStorage.getItem("tam1");
+      var tam2 = localStorage.getItem("tam2");
+
+      if(t1cal!= null && t1lip!= null && t1carb!= null && t1prot!= null && tam1!= null) {
+        document.getElementsByClassName("counter")[0].children[0].innerHTML = t1cal;
+        document.getElementsByClassName("counter")[0].children[1].innerHTML = t1lip;
+        document.getElementsByClassName("counter")[0].children[2].innerHTML = t1carb;
+        document.getElementsByClassName("counter")[0].children[3].innerHTML = t1prot;
+
+        for(i=0; i<tam1; i++) {
+          var y = document.createElement("p");
+          y.setAttribute("class", "alimento");
+
+          var z = document.createTextNode(localStorage.getItem("t1alimento"+i));
+          y.appendChild(z);
+
+          var d = document.getElementById("form0");
+          d.appendChild(y);
+        }
+      }
+
+     if(t2cal!= null && t2lip!= null && t2carb!= null && t2prot!= null && tam2!= null) {
+        document.getElementsByClassName("counter")[1].children[0].innerHTML = t2cal;
+        document.getElementsByClassName("counter")[1].children[1].innerHTML = t2lip;
+        document.getElementsByClassName("counter")[1].children[2].innerHTML = t2carb;
+        document.getElementsByClassName("counter")[1].children[3].innerHTML = t2prot;
+
+        for(i=0; i<tam2; i++) {
+          var y = document.createElement("p");
+          y.setAttribute("class", "alimento");
+
+          var z = document.createTextNode(localStorage.getItem("t2alimento"+i));
+          y.appendChild(z);
+
+          var d = document.getElementById("form1");
+          d.appendChild(y);
+        }
+     }
+   }
+  </script>
+</html>
