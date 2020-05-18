@@ -29,6 +29,7 @@
          </tbody>
        </table>
      </div>
+
     <h4 style="display: inline">Refeicao 1</h4>
     <button style="display: inline" onclick="reset(0)">Reset</button>
     <div class="container" id="form0">
@@ -50,6 +51,7 @@
       </table>
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Adicionar0">Adicionar alimentos</button>
     </div>
+
     <h4 style="display: inline">Refeicao 2</h4>
     <button style="display: inline" onclick="reset(1)">Reset</button>
     <div class="container" id="form1">
@@ -71,11 +73,57 @@
       </table>
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Adicionar1">Adicionar alimentos</button>
     </div>
+
+    <h4 style="display: inline">Refeicao 3</h4>
+    <button style="display: inline" onclick="reset(2)">Reset</button>
+    <div class="container" id="form2">
+      <table>
+        <tbody>
+          <tr>
+            <th>Calorias</th>
+            <th>Lipidos</th>
+            <th>Carboidratos</th>
+            <th>Proteinas</th>
+          </tr>
+          <tr class="counter">
+            <th>0</th>
+            <th>0</th>
+            <th>0</th>
+            <th>0</th>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Adicionar2">Adicionar alimentos</button>
+    </div>
+
+    <h4 style="display: inline">Refeicao 4</h4>
+    <button style="display: inline" onclick="reset(3)">Reset</button>
+    <div class="container" id="form3">
+      <table>
+        <tbody>
+          <tr>
+            <th>Calorias</th>
+            <th>Lipidos</th>
+            <th>Carboidratos</th>
+            <th>Proteinas</th>
+          </tr>
+          <tr class="counter">
+            <th>0</th>
+            <th>0</th>
+            <th>0</th>
+            <th>0</th>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Adicionar3">Adicionar alimentos</button>
+    </div>
+
     <div class="modal fade" id="Adicionar0" tabindex="-1" role="dialog" aria-labelledby="#Adicionar0" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="Adicionar0Label">Adiciona alimentos</h5>
+            <input class="form-control" id="search0" type="text" placeholder="Search" aria-label="Search" onkeyup="search(0)">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -93,8 +141,8 @@
                  </tr></tbody>
               </table>
             </div>
-            <form id="qt" style="display:none;">
-              <p>Quantidade?<input type="number" value=100 id="num"></p>
+            <form class="qt" style="display:none;">
+              <p>Quantidade?<input type="number" value=100 class="num"></p>
             </form>
           </div>
           <div class="modal-footer">
@@ -104,11 +152,13 @@
         </div>
       </div>
     </div>
+
     <div class="modal fade" id="Adicionar1" tabindex="-1" role="dialog" aria-labelledby="#Adicionar1" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="Adicionar1Label">Adiciona alimentos</h5>
+            <input class="form-control" id="search1" type="text" placeholder="Search" aria-label="Search" onkeyup="search(1)">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -126,8 +176,8 @@
                  </tr></tbody>
               </table>
             </div>
-            <form id="qt" style="display:none;">
-              <p>Quantidade?<input type="number" value=100 id="num"></p>
+            <form class="qt" style="display:none;">
+              <p>Quantidade?<input type="number" value=100 class="num"></p>
             </form>
           </div>
           <div class="modal-footer">
@@ -137,9 +187,95 @@
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="Adicionar2" tabindex="-1" role="dialog" aria-labelledby="#Adicionar2" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Adicionar2Label">Adiciona alimentos</h5>
+            <input class="form-control" id="search2" type="text" placeholder="Search" aria-label="Search" onkeyup="search(2)">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div>
+                <table class="table-alimentos">
+                  <tbody><tr>
+                    <th>Id</th>
+                    <th>Alimento</th>
+                    <th>Calorias</th>
+                    <th>Lipidos</th>
+                    <th>Carboidratos</th>
+                    <th>Proteinas</th>
+                 </tr></tbody>
+              </table>
+            </div>
+            <form class="qt" style="display:none;">
+              <p>Quantidade?<input type="number" value=100 class="num"></p>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="adicionarAlimento(2)">Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="Adicionar3" tabindex="-1" role="dialog" aria-labelledby="#Adicionar3" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Adicionar3Label">Adiciona alimentos</h5>
+            <input class="form-control" id="search3" type="text" placeholder="Search" aria-label="Search" onkeyup="search(3)">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div>
+                <table class="table-alimentos">
+                  <tbody><tr>
+                    <th>Id</th>
+                    <th>Alimento</th>
+                    <th>Calorias</th>
+                    <th>Lipidos</th>
+                    <th>Carboidratos</th>
+                    <th>Proteinas</th>
+                 </tr></tbody>
+              </table>
+            </div>
+            <form class="qt" style="display:none;">
+              <p>Quantidade?<input type="number" value=100 class="num"></p>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="adicionarAlimento(3)">Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
   <script>
-    var tamanho = 7;
+    function search(nr) {
+      var filter = document.getElementById("search"+nr).value.toUpperCase();
+
+      var tam = document.getElementsByClassName("table-alimentos")[nr].children[0].getElementsByTagName("tr").length - 1;
+
+      for(i=1; i<=tam; i++) {
+        var txtValue = document.getElementsByClassName("table-alimentos")[nr].children[0].getElementsByTagName("tr")[i].textContent;
+        if(txtValue.toUpperCase().indexOf(filter) > -1) {
+          document.getElementsByClassName("table-alimentos")[nr].children[0].getElementsByTagName("tr")[i].style.display = "";
+        }else {
+          document.getElementsByClassName("table-alimentos")[nr].children[0].getElementsByTagName("tr")[i].style.display = "none";
+        }
+      }
+
+    }
+
+    var numeroDeAlimentos;
 
     function reset(nr) {
       while(document.getElementById("form"+nr).getElementsByClassName("alimento").length != 0) {
@@ -148,29 +284,29 @@
       var j=1;
       for(i=0; i<4; i++) {
         document.getElementsByClassName("counter")[nr].children[i].innerHTML = 0;
-        $("#counterTotal th:nth-child("+j+")").html(parseFloat(document.getElementsByClassName("counter")[0].children[i].innerHTML) + parseFloat(document.getElementsByClassName("counter")[1].children[i].innerHTML));
+        $("#counterTotal th:nth-child("+j+")").html(parseFloat(document.getElementsByClassName("counter")[0].children[i].innerHTML) + parseFloat(document.getElementsByClassName("counter")[1].children[i].innerHTML) + parseFloat(document.getElementsByClassName("counter")[2].children[i].innerHTML) + parseFloat(document.getElementsByClassName("counter")[3].children[i].innerHTML));
         j++;
       }
     }
 
-    function selectAlimento() {
+    function selectAlimento(nr) {
          if(this.style.backgroundColor == "black") {
            this.style.backgroundColor = "white";
-           document.getElementById("qt").style.display = "none";
+           $(".qt").css("display", "none");
          }else {
            this.style.backgroundColor = "black";
-           document.getElementById("qt").style.display = "block";
+           $(".qt").css("display", "block");
          }
      }
 
     function adicionarAlimento(nr) {
-       for(i=0; i< tamanho; i++) {
+       for(i=0; i< numeroDeAlimentos; i++) {
          var x = document.getElementsByClassName(i)[nr];
          if(x.style.backgroundColor == "black") {
             var y = document.createElement("p");
             y.setAttribute("class", "alimento");
 
-            var qty = document.getElementById("num").value;
+            var qty = document.getElementsByClassName("num")[nr].value;
             var z = document.createTextNode(x.children[1].innerHTML+"("+qty+"g)");
             y.appendChild(z);
 
@@ -204,12 +340,15 @@
      xmlhttp.onreadystatechange = function() {
        if (this.readyState == 4 && this.status == 200) {
          var arrayAlimentos = JSON.parse(this.responseText);
+         numeroDeAlimentos = arrayAlimentos.length;
          fillAlimentos(arrayAlimentos);
        }
      };
 
      xmlhttp.open("GET", "alimentos.txt", true);
      xmlhttp.send();
+
+     return numeroDeAlimentos;
     }
 
     getAlimentos();
@@ -217,11 +356,10 @@
     function fillAlimentos(arrayAlimentos) {
       var table0 = document.getElementsByClassName("table-alimentos")[0];
       var table1 = document.getElementsByClassName("table-alimentos")[1];
-      console.log(table0);
-      console.log(table1);
+      var table2 = document.getElementsByClassName("table-alimentos")[2];
+      var table3 = document.getElementsByClassName("table-alimentos")[3];
       let tam = arrayAlimentos.length;
       for(i=0; i<tam; i++) {
-        console.log(arrayAlimentos[i]);
         var row = table0.insertRow();
         row.addEventListener("click", selectAlimento);
         row.setAttribute("class", i);
@@ -255,6 +393,40 @@
         cell14.innerHTML = arrayAlimentos[i].lipidos;
         cell15.innerHTML = arrayAlimentos[i].carboidratos;
         cell16.innerHTML = arrayAlimentos[i].proteinas;
+
+        var row2 = table2.insertRow();
+        row2.addEventListener("click", selectAlimento);
+        row2.setAttribute("class", i);
+        var cell21 = row2.insertCell(0);
+        var cell22 = row2.insertCell(1);
+        var cell23 = row2.insertCell(2);
+        var cell24 = row2.insertCell(3);
+        var cell25 = row2.insertCell(4);
+        var cell26 = row2.insertCell(5);
+
+        cell21.innerHTML = arrayAlimentos[i].id;
+        cell22.innerHTML = arrayAlimentos[i].alimento;
+        cell23.innerHTML = arrayAlimentos[i].calorias;
+        cell24.innerHTML = arrayAlimentos[i].lipidos;
+        cell25.innerHTML = arrayAlimentos[i].carboidratos;
+        cell26.innerHTML = arrayAlimentos[i].proteinas;
+
+        var row3 = table3.insertRow();
+        row3.addEventListener("click", selectAlimento);
+        row3.setAttribute("class", i);
+        var cell31 = row3.insertCell(0);
+        var cell32 = row3.insertCell(1);
+        var cell33 = row3.insertCell(2);
+        var cell34 = row3.insertCell(3);
+        var cell35 = row3.insertCell(4);
+        var cell36 = row3.insertCell(5);
+
+        cell31.innerHTML = arrayAlimentos[i].id;
+        cell32.innerHTML = arrayAlimentos[i].alimento;
+        cell33.innerHTML = arrayAlimentos[i].calorias;
+        cell34.innerHTML = arrayAlimentos[i].lipidos;
+        cell35.innerHTML = arrayAlimentos[i].carboidratos;
+        cell36.innerHTML = arrayAlimentos[i].proteinas;
       }
     }
 

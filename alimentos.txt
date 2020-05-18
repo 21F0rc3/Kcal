@@ -17,11 +17,11 @@
   },
   {
     "id": 3,
-    "alimento": "bife",
-    "calorias": 271,
-    "lipidos": 19,
-    "carboidratos": 0,
-    "proteinas": 25
+    "alimento": "bife de peru, grelhado",
+    "calorias": 152,
+    "lipidos": 2.5,
+    "carboidratos": 0.1,
+    "proteinas": 28.3
   },
   {
     "id": 4,
@@ -54,5 +54,21 @@
     "lipidos": 1,
     "carboidratos": 5,
     "proteinas": 3.4
+  },
+  {
+    "id": 8,
+    "alimento": "barra de chocolate",
+    "calorias": 539,
+    "lipidos": 30,
+    "carboidratos": 59,
+    "proteinas": 6.8
+  },
+  {
+    "id": 9,
+    "alimento": "espetadas de peru, grelhadas",
+    "calorias": 253,
+    "lipidos": 21.2,
+    "carboidratos": 1,
+    "proteinas": 14.4
   }
 ]
