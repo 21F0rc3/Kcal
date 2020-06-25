@@ -41,11 +41,11 @@
   },
   {
     "id": 6,
-    "alimento": "atum",
-    "calorias": 130,
-    "lipidos": 0.6,
-    "carboidratos": 0,
-    "proteinas": 29
+    "alimento": "lata de atum",
+    "calorias": 79,
+    "lipidos": 0.7,
+    "carboidratos": 0.4,
+    "proteinas": 18
   },
   {
     "id": 7,
@@ -70,5 +70,13 @@
     "lipidos": 21.2,
     "carboidratos": 1,
     "proteinas": 14.4
+  },
+  {
+    "id": 10,
+    "alimento": "ovos mexidos",
+    "calorias": 148,
+    "lipidos": 11,
+    "carboidratos": 1.6,
+    "proteinas": 10
   }
 ]
