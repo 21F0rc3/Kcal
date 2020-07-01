@@ -48,9 +48,10 @@ function adicionarAlimento() {
     if($(x).attr("style") == "background-color:black") {
       var y = document.createElement("p");
       y.setAttribute("class", "alimento");
-      y.setAttribute("tag", x.children[0].innerHTML);
+      y.setAttribute("id_Alimento", x.children[0].innerHTML);
 
       var qty = document.getElementsByClassName("num")[nr].value;
+      y.setAttribute("quantidade", qty);
       var z = document.createTextNode(x.children[1].innerHTML+"("+qty+"g)");
       y.addEventListener("click", removeAlimento);
       y.appendChild(z);
@@ -69,11 +70,12 @@ function soma(nr) {
   cal = lip = carb = prot = 0;
   for(i=0; i<=$("#form"+nr).children(".alimento").length; i++) {
     if($("#form"+nr).children(".alimento").length!=0 && i!=$("#form"+nr).children(".alimento").length) {
-      var id = parseInt($("#form"+nr).children(".alimento").eq(i).attr("tag"))-1;
-      cal += arrayAlimentos[id].calorias;
-      lip += arrayAlimentos[id].lipidos;
-      carb += arrayAlimentos[id].carboidratos;
-      prot += arrayAlimentos[id].proteinas;
+      var id = parseInt($("#form"+nr).children(".alimento").eq(i).attr("id_Alimento"))-1;
+      var qty = parseInt($("#form"+nr).children(".alimento").eq(i).attr("quantidade"));
+      cal += (arrayAlimentos[id].calorias * qty/100);
+      lip += (arrayAlimentos[id].lipidos * qty/100);
+      carb += (arrayAlimentos[id].carboidratos * qty/100);
+      prot += (arrayAlimentos[id].proteinas * qty/100);
     }
     $(".counter").eq(nr).children().eq(0).html(cal);
     $(".counter").eq(nr).children().eq(1).html(lip);
@@ -113,7 +115,7 @@ function counterTotal() {
      }
    }
    for(i=0; i<arrayAlimentos.length; i++) {
-     if($(this).attr("tag") == arrayAlimentos[i].id) {
+     if($(this).attr("id_Alimento") == arrayAlimentos[i].id) {
        $(this).remove();
        soma(nr);
        break;
