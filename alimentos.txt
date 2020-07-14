@@ -78,5 +78,21 @@
     "lipidos": 11,
     "carboidratos": 1.6,
     "proteinas": 10
+  },
+  {
+    "id": 11,
+    "alimento": "Douradinhos",
+    "calorias": 188,
+    "lipidos": 8.3,
+    "carboidratos": 16.7,
+    "proteinas": 11.2 
+  },
+  {
+    "id": 12,
+    "alimento": "Batatas fritas (pacote)",
+    "calorias": 540,
+    "lipidos": 34,
+    "carboidratos": 49,
+    "proteinas": 6.9 
   }
 ]
