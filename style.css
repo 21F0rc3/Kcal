@@ -10,3 +10,9 @@
 .input-group {
   margin: 40px;
 }
+
+#graphAlim {
+  position: relative;
+  left: 10px;
+  height: 100px;
+}

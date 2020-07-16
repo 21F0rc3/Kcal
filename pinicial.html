@@ -17,6 +17,7 @@
     <div tag="navegador">
       <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" onclick="displayContador()">Contador</a>
+        <a class="navbar-brand" onclick="displayEstatisticas()">Estatisticas</a>
         <a class="navbar-brand" onclick="displayDieta()">Dieta</a>
       </nav>
     </div>
@@ -68,16 +69,18 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="Adicionar0Label">Adiciona alimentos</h5>
-                <input class="form-control" id="search0" type="text" placeholder="Search" aria-label="Search" onkeyup="search(0)">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <section style="padding: 10px;">
+                  <h4>Adiciona Alimento</h4>
+                  <input class="form-control" id="search0" type="text" placeholder="Search" aria-label="Search" onkeyup="search(0)" style="width:200px;">
+                </section>
+                <canvas id="graphAlim"></canvas>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha/Chart.min.js"></script>
+                <script src="graphAlimento.js"></script>
               </div>
               <div class="modal-body">
                 <div>
-                    <table class="table-alimentos">
-                      <tbody><tr>
+                    <table>
+                      <tbody id="table-alimentos"><tr>
                         <th>Id</th>
                         <th>Alimento</th>
                         <th>Calorias</th>
@@ -126,11 +129,13 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="Adicionar1Label">Adiciona alimentos</h5>
-                <input class="form-control" id="search1" type="text" placeholder="Search" aria-label="Search" onkeyup="search(1)">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <section style="padding: 10px;">
+                  <h4>Adiciona Alimento</h4>
+                  <input class="form-control" id="search1" type="text" placeholder="Search" aria-label="Search" onkeyup="search(1)" style="width:200px;">
+                </section>
+                <canvas id="graphAlim"></canvas>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha/Chart.min.js"></script>
+                <script src="graphAlimento.js"></script>
               </div>
               <div class="modal-body">
                 <div>
@@ -184,11 +189,13 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="Adicionar2Label">Adiciona alimentos</h5>
-                <input class="form-control" id="search2" type="text" placeholder="Search" aria-label="Search" onkeyup="search(2)">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <section style="padding: 10px;">
+                  <h4>Adiciona Alimento</h4>
+                  <input class="form-control" id="search2" type="text" placeholder="Search" aria-label="Search" onkeyup="search(2)" style="width:200px;">
+                </section>
+                <canvas id="graphAlim"></canvas>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha/Chart.min.js"></script>
+                <script src="graphAlimento.js"></script>
               </div>
               <div class="modal-body">
                 <div>
@@ -242,11 +249,13 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="Adicionar3Label">Adiciona alimentos</h5>
-                <input class="form-control" id="search3" type="text" placeholder="Search" aria-label="Search" onkeyup="search(3)">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <section style="padding: 10px;">
+                  <h4>Adiciona Alimento</h4>
+                  <input class="form-control" id="search3" type="text" placeholder="Search" aria-label="Search" onkeyup="search(3)" style="width:200px;">
+                </section>
+                <canvas id="graphAlim"></canvas>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha/Chart.min.js"></script>
+                <script src="graphAlimento.js"></script>
               </div>
               <div class="modal-body">
                 <div>
@@ -273,6 +282,11 @@
           </div>
         </div>
       </div>
+    </div>
+    <div id="estatisticas" style="display:none">
+      <canvas id="myChart" width="400" height="400"></canvas>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha/Chart.min.js"></script>
+      <script src="graph.js"></script>
     </div>
     <div id="dieta" style="display:none">
       <div class="input-group">

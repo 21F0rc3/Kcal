@@ -3,11 +3,19 @@ var arrayAlimentos;
 function displayContador() {
   $("#contador").show();
   $("#dieta").hide();
+  $("#estatisticas").hide();
 }
 
 function displayDieta() {
   $("#dieta").show();
   $("#contador").hide();
+  $("#estatisticas").hide();
+}
+
+function displayEstatisticas() {
+  $("#dieta").hide();
+  $("#contador").hide();
+  $("#estatisticas").show();
 }
 
 function search(nr) {
@@ -43,6 +51,8 @@ function selectAlimento() {
        $(this).attr("style", "background-color:black");
        $(this).siblings().attr("style", "background-color:white");
        $(".qt").css("display", "block");
+       var x = $(this);
+       updateGraph(x);
      }
  }
 
