@@ -1,7 +1,15 @@
 function updateGraph(x) {
   var macr = new Array();
 
-  var ctx = document.getElementById('graphAlim').getContext('2d');
+  if($(x).closest("#Adicionar0").length == 1) {
+    var ctx = $("#graphAlim0");
+  }else if($(x).closest("#Adicionar1").length == 1) {
+    var ctx = $("#graphAlim1");
+  }else if($(x).closest("#Adicionar2").length == 1) {
+    var ctx = $("#graphAlim2");
+  }else if($(x).closest("#Adicionar3").length == 1) {
+    var ctx = $("#graphAlim3")
+  }
 
     for(i=0; i<3; i++) {
       macr.shift();

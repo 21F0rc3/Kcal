@@ -126,8 +126,6 @@ function counterTotal() {
    getAlimentos();
  }
 
- start();
-
  function removeAlimento() {
    for(i=0; i<4; i++) {
      if($(this).parent().attr("id") == "form"+i) {
@@ -146,9 +144,8 @@ function counterTotal() {
 function getAlimentos() {
   var xmlhttp = new XMLHttpRequest();
 
-
- xmlhttp.onreadystatechange = function() {
-   if (this.readyState == 4 && this.status == 200) {
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
      arrayAlimentos = JSON.parse(this.responseText);
      fillAlimentos(arrayAlimentos);
    }

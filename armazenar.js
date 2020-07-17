@@ -72,6 +72,8 @@ window.onbeforeunload = function() {
 }
 
 window.onload = function() {
+  start();
+
   var resumoDia = JSON.parse(localStorage.getItem("resumoDia"));
 
   //Carregar data e valores
