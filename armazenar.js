@@ -161,6 +161,16 @@ window.onload = function() {
       $(".counter").eq(2).children().eq(i).html("0");
       $(".counter").eq(3).children().eq(i).html("0");
     }
+
+    //Carregar os valores de peso e altura atuais
+
+    var peso = resumoDia.peso;
+    var altura = resumoDia.altura;
+
+    $("#peso").val(peso);
+    $("#altura").val(altura);
+    macros();
+    imc();
   }
   ola();
 }

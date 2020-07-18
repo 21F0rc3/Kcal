@@ -25,4 +25,8 @@ function imc() {
   var imc = peso / (altura * altura);
 
   $("#IMC").html(imc);
+
+  var right = 495 - (imc * 20);
+  console.log(right);
+  document.getElementById("setas").style.right = right+"px";
 }

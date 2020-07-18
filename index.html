@@ -1,14 +1,335 @@
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Contador de Calorias</title>
     <link rel="stylesheet" href="style.css">
     <script src="javascript.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="dieta.js"></script>
+    <script src="code.js"></script>
+    <script src="armazenar.js"></script>
+    <script src="date.js"></script>
+    <title></title>
   </head>
   <body>
-    <p>Nome de utilizador:<input id="name" type="text"></p>
-    <p>Palavra-passe:<input id="password" type="password"></p>
-    <button onclick="iniSes()">Iniciar Sessão</button>
+    <div tag="navegador">
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" onclick="displayContador()">Contador</a>
+        <a class="navbar-brand" onclick="displayEstatisticas()">Estatisticas</a>
+        <a class="navbar-brand" onclick="displayDieta()">Dieta</a>
+      </nav>
+    </div>
+    <div id="contador">
+      <p id="data"></p>
+      <div class="container">
+         <h3>Total<h3>
+         <table>
+           <tbody>
+             <tr id="ct">
+               <th>Calorias</th>
+               <th>Lipidos</th>
+               <th>Carboidratos</th>
+               <th>Proteinas</th>
+             </tr>
+             <tr id="counterTotal">
+               <th>0</th>
+               <th>0</th>
+               <th>0</th>
+               <th>0</th>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+
+      <div tag="Refeição 1">
+        <h4 style="display: inline">Refeicao 1</h4>
+        <button class="reset" style="display: inline" onclick="reset(0)">Reset</button>
+        <div class="container" id="form0">
+          <table>
+            <tbody>
+              <tr>
+                <th>Calorias</th>
+                <th>Lipidos</th>
+                <th>Carboidratos</th>
+                <th>Proteinas</th>
+              </tr>
+              <tr class="counter">
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
+              </tr>
+            </tbody>
+          </table>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Adicionar0">Adicionar alimentos</button>
+        </div>
+        <div class="modal fade" id="Adicionar0" tabindex="-1" role="dialog" aria-labelledby="#Adicionar0" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <section style="padding: 10px;">
+                  <h4>Adiciona Alimento</h4>
+                  <input class="form-control" id="search0" type="text" placeholder="Search" aria-label="Search" onkeyup="search(0)" style="width:200px;">
+                </section>
+                <canvas id="graphAlim0"></canvas>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha/Chart.min.js"></script>
+                <script src="graphAlimento.js"></script>
+              </div>
+              <div class="modal-body">
+                <div>
+                    <table class="table-alimentos">
+                      <tbody><tr>
+                        <th>Id</th>
+                        <th>Alimento</th>
+                        <th>Calorias</th>
+                        <th>Lipidos</th>
+                        <th>Carboidratos</th>
+                        <th>Proteinas</th>
+                     </tr></tbody>
+                  </table>
+                </div>
+                <form class="qt" style="display:none;">
+                  <p>Quantidade?<input type="number" value=100 class="num"></p>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="0" onclick="adicionarAlimento()" data-dismiss="modal">Adicionar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div tag="Refeicao 2">
+        <h4 style="display: inline">Refeicao 2</h4>
+        <button style="display: inline" onclick="reset(1)">Reset</button>
+        <div class="container" id="form1">
+          <table>
+            <tbody>
+              <tr>
+                <th>Calorias</th>
+                <th>Lipidos</th>
+                <th>Carboidratos</th>
+                <th>Proteinas</th>
+              </tr>
+              <tr class="counter">
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
+              </tr>
+            </tbody>
+          </table>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Adicionar1">Adicionar alimentos</button>
+        </div>
+        <div class="modal fade" id="Adicionar1" tabindex="-1" role="dialog" aria-labelledby="#Adicionar1" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <section style="padding: 10px;">
+                  <h4>Adiciona Alimento</h4>
+                  <input class="form-control" id="search1" type="text" placeholder="Search" aria-label="Search" onkeyup="search(1)" style="width:200px;">
+                </section>
+                <canvas id="graphAlim1"></canvas>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha/Chart.min.js"></script>
+                <script src="graphAlimento.js"></script>
+              </div>
+              <div class="modal-body">
+                <div>
+                    <table class="table-alimentos">
+                      <tbody><tr>
+                        <th>Id</th>
+                        <th>Alimento</th>
+                        <th>Calorias</th>
+                        <th>Lipidos</th>
+                        <th>Carboidratos</th>
+                        <th>Proteinas</th>
+                     </tr></tbody>
+                  </table>
+                </div>
+                <form class="qt" style="display:none;">
+                  <p>Quantidade?<input type="number" value=100 class="num"></p>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="0" data-dismiss="modal" onclick="adicionarAlimento()">Adicionar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div tag="Refeicao 3">
+        <h4 style="display: inline">Refeicao 3</h4>
+        <button style="display: inline" onclick="reset(2)">Reset</button>
+        <div class="container" id="form2">
+          <table>
+            <tbody>
+              <tr>
+                <th>Calorias</th>
+                <th>Lipidos</th>
+                <th>Carboidratos</th>
+                <th>Proteinas</th>
+              </tr>
+              <tr class="counter">
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
+              </tr>
+            </tbody>
+          </table>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Adicionar2">Adicionar alimentos</button>
+        </div>
+        <div class="modal fade" id="Adicionar2" tabindex="-1" role="dialog" aria-labelledby="#Adicionar2" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <section style="padding: 10px;">
+                  <h4>Adiciona Alimento</h4>
+                  <input class="form-control" id="search2" type="text" placeholder="Search" aria-label="Search" onkeyup="search(2)" style="width:200px;">
+                </section>
+                <canvas id="graphAlim2"></canvas>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha/Chart.min.js"></script>
+                <script src="graphAlimento.js"></script>
+              </div>
+              <div class="modal-body">
+                <div>
+                    <table class="table-alimentos">
+                      <tbody><tr>
+                        <th>Id</th>
+                        <th>Alimento</th>
+                        <th>Calorias</th>
+                        <th>Lipidos</th>
+                        <th>Carboidratos</th>
+                        <th>Proteinas</th>
+                     </tr></tbody>
+                  </table>
+                </div>
+                <form class="qt" style="display:none;">
+                  <p>Quantidade?<input type="number" value=100 class="num"></p>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="0" data-dismiss="modal" onclick="adicionarAlimento()">Adicionar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div tag="Refeicao 4">
+        <h4 style="display: inline">Refeicao 4</h4>
+        <button style="display: inline" onclick="reset(3)">Reset</button>
+        <div class="container" id="form3">
+          <table>
+            <tbody>
+              <tr>
+                <th>Calorias</th>
+                <th>Lipidos</th>
+                <th>Carboidratos</th>
+                <th>Proteinas</th>
+              </tr>
+              <tr class="counter">
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
+              </tr>
+            </tbody>
+          </table>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Adicionar3">Adicionar alimentos</button>
+        </div>
+        <div class="modal fade" id="Adicionar3" tabindex="-1" role="dialog" aria-labelledby="#Adicionar3" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <section style="padding: 10px;">
+                  <h4>Adiciona Alimento</h4>
+                  <input class="form-control" id="search3" type="text" placeholder="Search" aria-label="Search" onkeyup="search(3)" style="width:200px;">
+                </section>
+                <canvas id="graphAlim3"></canvas>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha/Chart.min.js"></script>
+                <script src="graphAlimento.js"></script>
+              </div>
+              <div class="modal-body">
+                <div>
+                    <table class="table-alimentos">
+                      <tbody><tr>
+                        <th>Id</th>
+                        <th>Alimento</th>
+                        <th>Calorias</th>
+                        <th>Lipidos</th>
+                        <th>Carboidratos</th>
+                        <th>Proteinas</th>
+                     </tr></tbody>
+                  </table>
+                </div>
+                <form class="qt" style="display:none;">
+                  <p>Quantidade?<input type="number" value=100 class="num"></p>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="0" data-dismiss="modal" onclick="adicionarAlimento()">Adicionar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="estatisticas" style="display:none">
+      <canvas id="myChart"></canvas>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha/Chart.min.js"></script>
+      <script src="graph.js"></script>
+    </div>
+    <div id="dieta" style="display:none">
+      <div class="input-group">
+        <input id="peso" type="number" class="form-inline" onchange="macros()" placeholder="Peso">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Kg</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <input id="altura" type="number" class="form-inline" onchange="imc()" placeholder="Altura">
+        <div class="input-group-prepend">
+          <span class="input-group-text">m</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container col-sm">
+          <div>Calorias</div>
+          <div id="calorias"></div>
+        </div>
+        <div class="container col-sm">
+          <div>Lipidos</div>
+          <div id="lipidos"></div>
+        </div>
+        <div class="container col-sm">
+          <div>Carboidratos</div>
+          <div id="carboidratos"></div>
+        </div>
+        <div class="container col-sm">
+          <div>Proteinas</div>
+          <div id="proteinas"></div>
+        </div>
+      </div>
+      <div class="container" style="margin:40px;">
+        <div>IMC:</div>
+        <div id="IMC"></div>
+        <div id="imgIMC">
+          <img src="IMC.png"></img>
+          <div id="setas">
+            <a class="arrow up"></a>
+            <a class="arrow down"></a>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

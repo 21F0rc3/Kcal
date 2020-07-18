@@ -81,7 +81,7 @@
   },
   {
     "id": 11,
-    "alimento": "Douradinhos",
+    "alimento": "Douradinhos, grelhados",
     "calorias": 188,
     "lipidos": 8.3,
     "carboidratos": 16.7,
@@ -94,5 +94,37 @@
     "lipidos": 34,
     "carboidratos": 49,
     "proteinas": 6.9 
+  },
+  {
+    "id": 13,
+    "alimento": "Iogurte",
+    "calorias": 59,
+    "lipidos": 0.4,
+    "carboidratos": 3.6,
+    "proteinas": 10 
+  },
+  {
+    "id": 14,
+    "alimento": "Bife de Frango, grelhado",
+    "calorias": 98,
+    "lipidos": 0.5,
+    "carboidratos": 3.7,
+    "proteinas": 20 
+  },
+  {
+    "id": 15,
+    "alimento": "Pão",
+    "calorias": 265,
+    "lipidos": 3.2,
+    "carboidratos": 49,
+    "proteinas": 9 
+  },
+  {
+    "id": 16,
+    "alimento": "Costoleta de porco, grelhado",
+    "calorias": 240,
+    "lipidos": 13.8,
+    "carboidratos": 0,
+    "proteinas": 27.09 
   }
 ]
