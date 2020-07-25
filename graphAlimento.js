@@ -30,7 +30,7 @@ function updateGraph(x) {
       },
       options: {
         responsive: false,
-        maintainAspectRatio: false,
+        maintainAspectRatio: true,
         legend: {
           position: 'right'
         }

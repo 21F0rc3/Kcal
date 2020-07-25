@@ -1,10 +1,9 @@
 var db = openDatabase("Historico.db", "1.0", "Historico de Macros", 2 * 1024 * 1024);
 
-db.transaction(function(tx) {
-  tx.executeSql('CREATE TABLE "HISTORICO" ("id"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,"Data"	NUMERIC NOT NULL,"Tipo"	INTEGER NOT NULL,"Cal"	INTEGER NOT NULL,"Lip"	INTEGER NOT NULL,"Carb"	INTEGER NOT NULL,"Prot"	INTEGER NOT NULL);');
-});
-
-
+/*db.transaction(function(tx) {
+  tx.executeSql('DROP TABLE HISTORICO;');
+  tx.executeSql('CREATE TABLE "HISTORICO" ("IdH"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,"Tipo" INTENGER NOT NULL,"Data"	NUMERIC NOT NULL,"Calorias"	INTEGER NOT NULL,"Lipidos"	INTEGER NOT NULL,"Carboidratos"	INTEGER NOT NULL,"Proteinas"	INTEGER NOT NULL);');
+});*/
 
 window.onbeforeunload = function() {
    var resumoDia = {
@@ -148,11 +147,12 @@ window.onload = function() {
       counterTotal();
   }else {
     db.transaction(function (tx) {
-      tx.executeSql("INSERT INTO HISTORICO(Tipo, Data, Cal, Lip, Carb, Prot) VALUES ('1',"+JSON.stringify(data)+","+resumoDia.t1Macros[0]+","+resumoDia.t1Macros[1]+","+resumoDia.t1Macros[2]+","+resumoDia.t1Macros[3]+");");
-      tx.executeSql("INSERT INTO HISTORICO(Tipo, Data, Cal, Lip, Carb, Prot) VALUES ('2',"+JSON.stringify(data)+","+resumoDia.t2Macros[0]+","+resumoDia.t2Macros[1]+","+resumoDia.t2Macros[2]+","+resumoDia.t2Macros[3]+");");
-      tx.executeSql("INSERT INTO HISTORICO(Tipo, Data, Cal, Lip, Carb, Prot) VALUES ('3',"+JSON.stringify(data)+","+resumoDia.t3Macros[0]+","+resumoDia.t3Macros[1]+","+resumoDia.t3Macros[2]+","+resumoDia.t3Macros[3]+");");
-      tx.executeSql("INSERT INTO HISTORICO(Tipo, Data, Cal, Lip, Carb, Prot) VALUES ('4',"+JSON.stringify(data)+","+resumoDia.t4Macros[0]+","+resumoDia.t4Macros[1]+","+resumoDia.t4Macros[2]+","+resumoDia.t4Macros[3]+");");
-      tx.executeSql("INSERT INTO HISTORICO(Tipo, Data, Cal, Lip, Carb, Prot) VALUES ('0',"+JSON.stringify(data)+","+resumoDia.tMacros[0]+","+resumoDia.tMacros[1]+","+resumoDia.tMacros[2]+","+resumoDia.tMacros[3]+");");
+      tx.executeSql("INSERT INTO HISTORICO(Tipo, Data, Calorias, Lipidos, Carboidratos, Proteinas) VALUES ('1',"+JSON.stringify(data)+","+resumoDia.t1Macros[0]+","+resumoDia.t1Macros[1]+","+resumoDia.t1Macros[2]+","+resumoDia.t1Macros[3]+");");
+      tx.executeSql("INSERT INTO HISTORICO(Tipo, Data, Calorias, Lipidos, Carboidratos, Proteinas) VALUES ('2',"+JSON.stringify(data)+","+resumoDia.t2Macros[0]+","+resumoDia.t2Macros[1]+","+resumoDia.t2Macros[2]+","+resumoDia.t2Macros[3]+");");
+      tx.executeSql("INSERT INTO HISTORICO(Tipo, Data, Calorias, Lipidos, Carboidratos, Proteinas) VALUES ('3',"+JSON.stringify(data)+","+resumoDia.t3Macros[0]+","+resumoDia.t3Macros[1]+","+resumoDia.t3Macros[2]+","+resumoDia.t3Macros[3]+");");
+      tx.executeSql("INSERT INTO HISTORICO(Tipo, Data, Calorias, Lipidos, Carboidratos, Proteinas) VALUES ('4',"+JSON.stringify(data)+","+resumoDia.t4Macros[0]+","+resumoDia.t4Macros[1]+","+resumoDia.t4Macros[2]+","+resumoDia.t4Macros[3]+");");
+      tx.executeSql("INSERT INTO HISTORICO(Tipo, Data, Calorias, Lipidos, Carboidratos, Proteinas) VALUES ('0',"+JSON.stringify(data)+","+resumoDia.tMacros[0]+","+resumoDia.tMacros[1]+","+resumoDia.tMacros[2]+","+resumoDia.tMacros[3]+");");
+      tx.executeSql("INSERT INTO PESO(Data, Peso) VALUES ("+JSON.stringify(data)+","+resumoDia.peso+");");
     });
 
     for(i=0; i<4; i++) {

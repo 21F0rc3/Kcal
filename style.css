@@ -11,7 +11,7 @@
   margin: 40px;
 }
 
-#graphAlim {
+#graphAlim0, #graphAlim1, #graphAlim2, #graphAlim3 {
   position: relative;
   left: 10px;
   height: 100px;
