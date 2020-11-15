@@ -29,10 +29,12 @@ function updateGraph(x) {
         }]
       },
       options: {
-        responsive: false,
-        maintainAspectRatio: true,
+        responsive: true,
+        maintainAspectRatio: false,
         legend: {
-          position: 'right'
+          display: false,
+          position: 'right',
+          fontSize: '1vw'
         }
       }
     });

@@ -3,9 +3,9 @@ var calorias, lipidos, carboidratos, proteinas;
 function macros() {
   var peso = $("#peso").val();
   calorias = peso * 44;
-  lipidos = calorias * 0.25;
-  carboidratos = calorias * 0.5;
-  proteinas = calorias * 0.25;
+  lipidos = calorias * 0.25 / 9;
+  carboidratos = calorias * 0.5 / 4;
+  proteinas = calorias * 0.25 / 4;
 
   $("#calorias").html(calorias);
   $("#lipidos").html(lipidos);
@@ -24,9 +24,9 @@ function imc() {
 
   var imc = peso / (altura * altura);
 
-  $("#IMC").html(imc);
+  $("#IMC").html("IMC: "+imc);
 
-  var right = 495 - (imc * 20);
+  var right = (imc * 100)/50;
   console.log(right);
-  document.getElementById("setas").style.right = right+"px";
+  document.getElementById("setas").style.left = right+"%";
 }

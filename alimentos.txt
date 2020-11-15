@@ -126,5 +126,165 @@
     "lipidos": 13.8,
     "carboidratos": 0,
     "proteinas": 27.09 
+  },
+  {
+    "id": 17,
+    "alimento": "Pizza",
+    "calorias": 253,
+    "lipidos": 8.5,
+    "carboidratos": 30.2,
+    "proteinas": 14 
+  },
+  {
+    "id": 18,
+    "alimento": "Salmao, grelhado",
+    "calorias": 171,
+    "lipidos": 7.56,
+    "carboidratos": 0.49,
+    "proteinas": 23.97 
+  },
+  {
+    "id": 19,
+    "alimento": "Whey Protein, água",
+    "calorias": 382,
+    "lipidos": 5.7,
+    "carboidratos": 6.7,
+    "proteinas": 76 
+  },
+  {
+    "id": 20,
+    "alimento": "Hamburger de vaca, grelhado",
+    "calorias": 183,
+    "lipidos": 8,
+    "carboidratos": 0,
+    "proteinas": 27 
+  },
+  {
+    "id": 21,
+    "alimento": "Carne de vaca, grelhado",
+    "calorias": 220,
+    "lipidos": 12,
+    "carboidratos": 0,
+    "proteinas": 26 
+  },
+  {
+    "id": 22,
+    "alimento": "Batata, frita",
+    "calorias": 312,
+    "lipidos": 15,
+    "carboidratos": 41,
+    "proteinas": 3.4 
+  },
+  {
+    "id": 23,
+    "alimento": "Rissois de carne, frito",
+    "calorias": 201,
+    "lipidos": 6.5,
+    "carboidratos": 27.7,
+    "proteinas": 7.8 
+  },
+  {
+    "id": 24,
+    "alimento": "Chocolate de leite",
+    "calorias": 532,
+    "lipidos": 30.3,
+    "carboidratos": 58.7,
+    "proteinas": 5.2 
+  },
+  {
+    "id": 25,
+    "alimento": "Salsicha, crua",
+    "calorias": 159,
+    "lipidos": 11.6,
+    "carboidratos": 4,
+    "proteinas": 9.7 
+  },
+  {
+    "id": 26,
+    "alimento": "Cookies",
+    "calorias": 480,
+    "lipidos": 22,
+    "carboidratos": 63,
+    "proteinas": 6 
+  },
+  {
+    "id": 27,
+    "alimento": "Entrecosto",
+    "calorias": 243,
+    "lipidos": 15,
+    "carboidratos": 0,
+    "proteinas": 26.80 
+  },
+  {
+    "id": 28,
+    "alimento": "Bolachas argolas de chocolate",
+    "calorias": 511,
+    "lipidos": 25,
+    "carboidratos": 64,
+    "proteinas": 6 
+  },
+  {
+    "id": 29,
+    "alimento": "Carne Picada, a bolonhesa",
+    "calorias": 148.66,
+    "lipidos": 9.76,
+    "carboidratos": 3.39,
+    "proteinas": 11.25 
+  },
+  {
+    "id": 30,
+    "alimento": "m&m's, amendoim",
+    "calorias": 515,
+    "lipidos": 26,
+    "carboidratos": 59,
+    "proteinas": 9.9 
+  },
+  {
+    "id": 31,
+    "alimento": "Cereais de trigo e milho com mel",
+    "calorias": 389,
+    "lipidos": 2.4,
+    "carboidratos": 83,
+    "proteinas": 6.7 
+  },
+  {
+    "id": 32,
+    "alimento": "Feijao frade",
+    "calorias": 106,
+    "lipidos": 0.8,
+    "carboidratos": 15.3,
+    "proteinas": 7 
+  },
+  {
+    "id": 33,
+    "alimento": "Ferrero Rocher",
+    "calorias": 603,
+    "lipidos": 42.7,
+    "carboidratos": 44.4,
+    "proteinas": 8.2 
+  },
+  {
+    "id": 34,
+    "alimento": "Flocos de aveia",
+    "calorias": 376,
+    "lipidos": 6.5,
+    "carboidratos": 62,
+    "proteinas": 11.8 
+  },
+  {
+    "id": 35,
+    "alimento": "KitKat",
+    "calorias": 518,
+    "lipidos": 26,
+    "carboidratos": 65,
+    "proteinas": 7 
+  },
+  {
+    "id": 36,
+    "alimento": "Kider Joy",
+    "calorias": 550,
+    "lipidos": 32,
+    "carboidratos": 56.5,
+    "proteinas": 8.2 
   }
 ]
