@@ -286,5 +286,53 @@
     "lipidos": 32,
     "carboidratos": 56.5,
     "proteinas": 8.2 
+  },
+  {
+    "id": 37,
+    "alimento": "Panado de frango, frito",
+    "calorias": 297,
+    "lipidos": 18.82,
+    "carboidratos": 16.32,
+    "proteinas": 15.59 
+  },
+  {
+    "id": 38,
+    "alimento": "Muesli Crunchy Chocolate",
+    "calorias": 434,
+    "lipidos": 16,
+    "carboidratos": 61,
+    "proteinas": 8.4 
+  },
+  {
+    "id": 39,
+    "alimento": "Febra de porco, grelhada",
+    "calorias": 287,
+    "lipidos": 20,
+    "carboidratos": 0,
+    "proteinas": 25 
+  },
+  {
+    "id": 40,
+    "alimento": "Pimento",
+    "calorias": 29,
+    "lipidos": 0.1,
+    "carboidratos": 0,
+    "proteinas": 0.0013 
+  },
+  {
+    "id": 41,
+    "alimento": "Kinder Bueno",
+    "calorias": 572,
+    "lipidos": 37.3,
+    "carboidratos": 49.5,
+    "proteinas": 8.6 
+  },
+  {
+    "id": 42,
+    "alimento": "Cereais Chocapic",
+    "calorias": 385,
+    "lipidos": 4.6,
+    "carboidratos": 73.3,
+    "proteinas": 8.8 
   }
 ]

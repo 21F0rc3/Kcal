@@ -1,5 +1,6 @@
 var calorias, lipidos, carboidratos, proteinas;
 
+//Calcula os macros que precisa bater consoante a dieta
 function macros() {
   var peso = $("#peso").val();
   calorias = peso * 44;
@@ -18,6 +19,7 @@ function macros() {
   $("#ct").children().eq(3).html("Proteinas (" +proteinas+")");
 }
 
+//Calcula o IMC consoante os dados de peso e altura
 function imc() {
   var peso = $("#peso").val();
   var altura = $("#altura").val();

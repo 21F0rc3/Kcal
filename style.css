@@ -1,133 +1,22 @@
-.container {
-  border: 2px solid black;
-}
-
-#calorias, #lipidos, #carboidratos, #proteinas {
-  border-top: 2px solid black;
-}
-
-.table-alimentos{
-  font-size: 2vw;
-}
-
-/*#graphAlim0, #graphAlim1, #graphAlim2, #graphAlim3 {
-  position: relative;
-  left: 10px;
-  width: 10vw;
-}*/
-
-#myChart {
-  height: 50px;
-}
-
-.arrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-}
-
-.up {
-  position: relative;
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-  top: 65px;
-  left: 15px;
-}
-
-.down {
-  position: relative;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  top: -20px;
-  right: 0%;
-}
-
-#setas{
-  position: relative;
-  z-index: 1;
-}
-
 .box {
-  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10vh 2vw;
 }
 
-#pri{
-  background-color: blue;
-  width: 37%;
-  height: 70px;
-  z-index: -1;
+.centered {
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
 }
 
-#seg{
-  background-color: green;
-  width: 12.8%;
-  z-index: -1;
+.container {
+  border: 0.3vw solid black;
 }
 
-#ter{
-  background-color: yellow;
-  width: 9.8%;
-  z-index: -1;
-}
-
-#qua{
-  background-color: orange;
-  width: 9.8;
-  z-index: -1;
-}
-
-#qui{
-  background-color: red;
-  width: 9.8%;
-  z-index: -1;
-}
-
-#sex{
-  background-color: purple;
-  width: 20%;
-  z-index: -1;
-}
-
-.navbar-brand{
-  font-size: 2vw;
-}
-
-h4, h3{
-  font-size: 2vw;
-}
-
-th{
-  font-size: 2vw;
-}
-
-.table-alimentos th{
-  font-size: 2vw;
-}
-
-p{
-  font-size: 2vw;
-}
-
-.qt p{
-  font-size: 2vw;
-}
-
-.reset{
-  font-size: 1.8vw;
-}
-
-.btn-primary{
-  font-size: 1vw;
-}
-
-.form-control{
-  height: 1vh;
-  width: 1vw;
-}
-
-.modal-content{
-  width: 80vw;
+tr, td {
+  font-size: 1.5vw;
 }
 
 @media screen and (max-width: 600px) {
