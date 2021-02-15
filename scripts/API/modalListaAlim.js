@@ -40,32 +40,17 @@ function selectAlimento() {
      }
  }
 
-//Funcao que adiciona um alimento a tabela refeicao
-function adicionarAlimento() {
-  for(i=0; i<4; i++) {
-    if($(".modal").eq(i).hasClass("show")) {
-      var nr = i;
-      break;
-    }
-  }
+//Funcao que adiciona um alimento a tabela refeicao especificada com --> nr
+function adicionarAlimento(nr) {
   for(i=0; i<arrayAlimentos.length; i++) {
-    var x = document.getElementsByClassName(i)[nr];
-    if($(x).attr("style") == "background-color:black") {
-      var y = document.createElement("p");
-      y.setAttribute("class", "alimento");
-      y.setAttribute("id_Alimento", x.children[0].innerHTML);
-
-      var qty = document.getElementsByClassName("num")[nr].value;
-      y.setAttribute("quantidade", qty);
-      var z = document.createTextNode(x.children[1].innerHTML+"("+qty+"g)");
-      y.addEventListener("click", removeAlimento);
-      y.appendChild(z);
-
-      var d = document.getElementById("form"+nr);
-      d.appendChild(y);
-
-      x.style.backgroundColor = "white";
-      soma(nr);
+    var alim = document.getElementsByClassName(i)[nr];
+    if($(alim).attr("style") == "background-color:black") {
+      var str = alim.children[1].innerHTML;
+      var id = alim.children[0].innerHTML;
+      var qty = document.getElementsByClassName("num")[nr].value;               //Gets value inputted by user of selected alim qty
+      createAlimElem(str, nr, qty, id);
+      alim.style.backgroundColor = "white";
+      soma(nr);                                                                 //Update tabela de refeicao values
     }
   }
 }
@@ -77,11 +62,6 @@ function removeAlimento() {
       nr = i;
     }
   }
-  for(i=0; i<arrayAlimentos.length; i++) {
-    if($(this).attr("id_Alimento") == arrayAlimentos[i].id) {
-      $(this).remove();
-      soma(nr);
-      break;
-    }
-  }
+  $(this).remove();
+  soma(nr);
 }

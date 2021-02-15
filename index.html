@@ -27,6 +27,7 @@
     <title></title>
   </head>
   <body>
+    <div id="data" style="display: none"></div>
     <div tag="navegador">
       <nav class="navbar navbar-light bg-light col-12">
         <a class="navbar-brand a" onclick="displayContador()">Contador</a>
@@ -34,16 +35,15 @@
         <a class="navbar-brand" onclick="displayDieta()">Dieta</a>
       </nav>
     </div>
-    <div id="inicio">
-      <div class="centered col-12">
+    <div id="inicio" class="centered col-12">
         <div class="row justify-content-around">
-          <div id="counterTotal" class="container col-4">
+          <div class="counterTotal container col-4">
             <div style="font-size: 2vw;">Proteinas</div>
             <div style="display: inline; font-size: 2vw;">--</div>
             <div style="display: inline; font-size: 2vw;">/</div>
             <div style="display: inline; font-size: 2vw;">--</div>
           </div>
-          <div id="counterTotal" class="container col-4">
+          <div class="counterTotal container col-4">
             <div style="font-size: 2vw;">Carboidratos</div>
             <div style="display: inline; font-size: 2vw;">--</div>
             <div style="display: inline; font-size: 2vw;">/</div>
@@ -53,7 +53,7 @@
         <div class="mx-auto d-block col-4" onmouseover="showPlus()" onmouseout="hidePlus()" onclick="displayContador()">
           <img id="plus" src="../assets/plus.png" class="img-fluid rounded" style="display:none;">
           <img src="../assets/Circle.png" class="img-fluid rounded image">
-          <div id="counterTotal" class="centered image">
+          <div class="counterTotal centered image">
             <div style="font-size: 4vw;">Calorias</div>
             <div style="display: inline; font-size: 2vw;">--</div>
             <div style="display: inline; font-size: 2vw;">/</div>
@@ -61,19 +61,18 @@
           </div>
         </div>
         <div class="row justify-content-around">
-          <div id="counterTotal" class="container col-4">
+          <div class="counterTotal container col-4">
             <div style="font-size: 2vw;">Lipidos</div>
             <div style="display: inline; font-size: 2vw;">--</div>
             <div style="display: inline; font-size: 2vw;">/</div>
             <div style="display: inline; font-size: 2vw;">--</div>
           </div>
-          <div id="counterTotal" class="container col-4">
+          <div class="counterTotal container col-4">
             <div style="font-size: 2vw;">Peso</div>
             <div style="display: inline; font-size: 2vw;">--</div>
             <div style="display: inline; font-size: 2vw;">/</div>
             <div style="display: inline; font-size: 2vw;">--</div>
           </div>
-        </div>
       </div>
     </div>
     <div id="contador" style="display:none">
@@ -132,187 +131,7 @@
                 </div>
                 <div class="modal-footer">
                  <button type="button" class="btn btn-secondary col-2" data-dismiss="modal" style="font-size: 2vw;">Fechar</button>
-                 <button type="button" class="0 col-2" onclick="adicionarAlimento()" data-dismiss="modal" style="font-size: 2vw; text-align: center;">Adicionar</button>
-                </div>
-             </div>
-           </div>
-          </div>
-        </div>
-        <div tag="Refeição 1">
-          <div class="row justify-content-between mx-0">
-            <div style="font-size: 1.5vw; display: inline-block; color: white; background-color: #2d3339;">#Refeição 1</div>
-            <div style="display: inline-block; color: white;">
-              <div class="reset" onclick="reset(0)" style="font-size: 1.5vw; display: inline-block; background-color: red;">Reset</div>
-              <div class="" data-toggle="modal" data-target="#Adicionar0" style="font-size: 1.5vw; display: inline-block; background-color: green;">Add</div>
-            </div>
-          </div>
-          <div id="form0" style="border-bottom: 0.3vw solid #2d3339; border-left: 0.3vw solid #2d3339; border-right: 0.3vw solid #2d3339;">
-            <table class="table">
-              <thead class="table-dark">
-                <th scope="col">Calorias</td>
-                <th scope="col">Lipidos</td>
-                <th scope="col">Carboidratos</td>
-                <th scope="col">Proteinas</td>
-              </thead>
-              <tbody>
-                <tr class="counter">
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="modal fade" id="Adicionar0" tabindex="-1" role="dialog" aria-labelledby="#Adicionar0" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <input class="form-control offset-2 mt-2 col-3 justify-content-start" id="search0" type="text" placeholder="" onkeyup="search(0)" style="font-size: 2vw;">
-                  <div class="chart-container justify-content-end" style="width:10vw">
-                    <canvas id="graphAlim0"></canvas>
-                  </div>
-                </div>
-                <div class="modal-body">
-                  <div>
-                    <table class="table-alimentos">
-                      <tbody><tr>
-                        <th>Id</th>
-                        <th>Alimento</th>
-                        <th>Calorias</th>
-                        <th>Lipidos</th>
-                        <th>Carboidratos</th>
-                        <th>Proteinas</th>
-                     </tr></tbody>
-                   </table>
-                 </div>
-                 <form class="qt" style="display:none;">
-                   <p>Quantidade?<input type="number" value=100 class="num"></p>
-                 </form>
-                </div>
-                <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary col-2" data-dismiss="modal" style="font-size: 2vw;">Fechar</button>
-                 <button type="button" class="0 col-2" onclick="adicionarAlimento()" data-dismiss="modal" style="font-size: 2vw; text-align: center;">Adicionar</button>
-                </div>
-             </div>
-           </div>
-          </div>
-        </div>
-        <div tag="Refeição 1">
-          <div class="row justify-content-between mx-0">
-            <div style="font-size: 1.5vw; display: inline-block; color: white; background-color: #2d3339;">#Refeição 1</div>
-            <div style="display: inline-block; color: white;">
-              <div class="reset" onclick="reset(0)" style="font-size: 1.5vw; display: inline-block; background-color: red;">Reset</div>
-              <div class="" data-toggle="modal" data-target="#Adicionar0" style="font-size: 1.5vw; display: inline-block; background-color: green;">Add</div>
-            </div>
-          </div>
-          <div id="form0" style="border-bottom: 0.3vw solid #2d3339; border-left: 0.3vw solid #2d3339; border-right: 0.3vw solid #2d3339;">
-            <table class="table">
-              <thead class="table-dark">
-                <th scope="col">Calorias</td>
-                <th scope="col">Lipidos</td>
-                <th scope="col">Carboidratos</td>
-                <th scope="col">Proteinas</td>
-              </thead>
-              <tbody>
-                <tr class="counter">
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="modal fade" id="Adicionar0" tabindex="-1" role="dialog" aria-labelledby="#Adicionar0" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <input class="form-control offset-2 mt-2 col-3 justify-content-start" id="search0" type="text" placeholder="" onkeyup="search(0)" style="font-size: 2vw;">
-                  <div class="chart-container justify-content-end" style="width:10vw">
-                    <canvas id="graphAlim0"></canvas>
-                  </div>
-                </div>
-                <div class="modal-body">
-                  <div>
-                    <table class="table-alimentos">
-                      <tbody><tr>
-                        <th>Id</th>
-                        <th>Alimento</th>
-                        <th>Calorias</th>
-                        <th>Lipidos</th>
-                        <th>Carboidratos</th>
-                        <th>Proteinas</th>
-                     </tr></tbody>
-                   </table>
-                 </div>
-                 <form class="qt" style="display:none;">
-                   <p>Quantidade?<input type="number" value=100 class="num"></p>
-                 </form>
-                </div>
-                <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary col-2" data-dismiss="modal" style="font-size: 2vw;">Fechar</button>
-                 <button type="button" class="0 col-2" onclick="adicionarAlimento()" data-dismiss="modal" style="font-size: 2vw; text-align: center;">Adicionar</button>
-                </div>
-             </div>
-           </div>
-          </div>
-        </div>
-        <div tag="Refeição 1">
-          <div class="row justify-content-between mx-0">
-            <div style="font-size: 1.5vw; display: inline-block; color: white; background-color: #2d3339;">#Refeição 1</div>
-            <div style="display: inline-block; color: white;">
-              <div class="reset" onclick="reset(0)" style="font-size: 1.5vw; display: inline-block; background-color: red;">Reset</div>
-              <div class="" data-toggle="modal" data-target="#Adicionar0" style="font-size: 1.5vw; display: inline-block; background-color: green;">Add</div>
-            </div>
-          </div>
-          <div id="form0" style="border-bottom: 0.3vw solid #2d3339; border-left: 0.3vw solid #2d3339; border-right: 0.3vw solid #2d3339;">
-            <table class="table">
-              <thead class="table-dark">
-                <th scope="col">Calorias</td>
-                <th scope="col">Lipidos</td>
-                <th scope="col">Carboidratos</td>
-                <th scope="col">Proteinas</td>
-              </thead>
-              <tbody>
-                <tr class="counter">
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="modal fade" id="Adicionar0" tabindex="-1" role="dialog" aria-labelledby="#Adicionar0" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <input class="form-control offset-2 mt-2 col-3 justify-content-start" id="search0" type="text" placeholder="" onkeyup="search(0)" style="font-size: 2vw;">
-                  <div class="chart-container justify-content-end" style="width:10vw">
-                    <canvas id="graphAlim0"></canvas>
-                  </div>
-                </div>
-                <div class="modal-body">
-                  <div>
-                    <table class="table-alimentos">
-                      <tbody><tr>
-                        <th>Id</th>
-                        <th>Alimento</th>
-                        <th>Calorias</th>
-                        <th>Lipidos</th>
-                        <th>Carboidratos</th>
-                        <th>Proteinas</th>
-                     </tr></tbody>
-                   </table>
-                 </div>
-                 <form class="qt" style="display:none;">
-                   <p>Quantidade?<input type="number" value=100 class="num"></p>
-                 </form>
-                </div>
-                <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary col-2" data-dismiss="modal" style="font-size: 2vw;">Fechar</button>
-                 <button type="button" class="0 col-2" onclick="adicionarAlimento()" data-dismiss="modal" style="font-size: 2vw; text-align: center;">Adicionar</button>
+                 <button type="button" class="col-2" onclick="adicionarAlimento(0)" data-dismiss="modal" style="font-size: 2vw; text-align: center;">Adicionar</button>
                 </div>
              </div>
            </div>

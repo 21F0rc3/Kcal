@@ -6,85 +6,38 @@ var db = openDatabase("Historico.db", "1.0", "Historico de Macros", 2 * 1024 * 1
 });*/
 
 window.onbeforeunload = function() {
-   var resumoDia = {
-     //Armazenar data atual
-     data : $("#data").html(),
+  localStorage.setItem("data", $("#data").html());
+  localStorage.setItem("peso", $("#peso").val());
+  localStorage.setItem("altura", $("#altura").val());
 
-     //Armazenar os valores de peso e altura atuais
-     peso : $("#peso").val(),
-     altura : $("#altura").val(),
+  for(i=0; i<$(".box").children().length; i++) {
+    var newRef = {cal: parseInt($(".counter").eq(i).children().eq(0).html()),
+                  lip: parseInt($(".counter").eq(i).children().eq(1).html()),
+                  carb: parseInt($(".counter").eq(i).children().eq(2).html()),
+                  prot: parseInt($(".counter").eq(i).children().eq(3).html())
+                  }
+    localStorage.setItem("Ref"+i.toString(), JSON.stringify(newRef));
 
-     //Armazenar valores das macros e os alimentos do atual dia
-     t1Macros: [$(".counter").eq(0).children().eq(0).html(),
-                $(".counter").eq(0).children().eq(1).html(),
-                $(".counter").eq(0).children().eq(2).html(),
-                $(".counter").eq(0).children().eq(3).html()],
-
-     t2Macros: [$(".counter").eq(1).children().eq(0).html(),
-                $(".counter").eq(1).children().eq(1).html(),
-                $(".counter").eq(1).children().eq(2).html(),
-                $(".counter").eq(1).children().eq(3).html()],
-
-     t3Macros: [$(".counter").eq(2).children().eq(0).html(),
-                $(".counter").eq(2).children().eq(1).html(),
-                $(".counter").eq(2).children().eq(2).html(),
-                $(".counter").eq(2).children().eq(3).html()],
-
-     t4Macros: [$(".counter").eq(3).children().eq(0).html(),
-                $(".counter").eq(3).children().eq(1).html(),
-                $(".counter").eq(3).children().eq(2).html(),
-                $(".counter").eq(3).children().eq(3).html()],
-
-     tMacros: [$("#counterTotal").children().eq(0).html(),
-               $("#counterTotal").children().eq(1).html(),
-               $("#counterTotal").children().eq(2).html(),
-               $("#counterTotal").children().eq(3).html()],
-
-     tam1: $("#form0").find(".alimento").length,
-
-     tam2: $("#form1").find(".alimento").length,
-
-     tam3: $("#form2").find(".alimento").length,
-
-     tam4: $("#form3").find(".alimento").length,
-   };
-
-   localStorage.setItem("resumoDia", JSON.stringify(resumoDia));
-
-   //Armazenar valores das macros e os alimentos do atual dia
-
-   for(i=0; i<document.getElementById("form0").getElementsByClassName("alimento").length; i++) {
-     localStorage.setItem("t1alimento"+i, document.getElementById("form0").getElementsByClassName("alimento")[i].innerHTML);
-   }
-
-   for(i=0; i<document.getElementById("form1").getElementsByClassName("alimento").length; i++) {
-     localStorage.setItem("t2alimento"+i, document.getElementById("form1").getElementsByClassName("alimento")[i].innerHTML);
-   }
-
-   for(i=0; i<document.getElementById("form2").getElementsByClassName("alimento").length; i++) {
-     localStorage.setItem("t3alimento"+i, document.getElementById("form2").getElementsByClassName("alimento")[i].innerHTML);
-   }
-
-   for(i=0; i<document.getElementById("form3").getElementsByClassName("alimento").length; i++) {
-     localStorage.setItem("t4alimento"+i, document.getElementById("form3").getElementsByClassName("alimento")[i].innerHTML);
-   }
+    for(j=0; j<$("#form"+i.toString()).find(".alimento").length; j++) {
+      localStorage.setItem("t"+i+"alimento"+j, $("#form"+i).find(".alimento").eq(j).html());
+      localStorage.setItem("t"+i+"alimento"+j+"id", $("#form"+i).find(".alimento").eq(j).attr("id_Alimento"));
+      localStorage.setItem("t"+i+"alimento"+j+"qty", $("#form"+i).find(".alimento").eq(j).attr("quantidade"));
+    }
+    localStorage.setItem("tam"+i.toString(), $("#form"+i.toString()).find(".alimento").length);
+  }
 }
 
 window.onload = function() {
   start();
 
-  var resumoDia = JSON.parse(localStorage.getItem("resumoDia"));
-
-  //Carregar data e valores
-
-  var data = resumoDia.data;
+  //Carregar data
+  var data = localStorage.getItem("data");
   dataAtual();
 
   if(data == $("#data").html()) {
     //Carregar os valores de peso e altura atuais
-
-    var peso = resumoDia.peso;
-    var altura = resumoDia.altura;
+    var peso = localStorage.getItem("peso");
+    var altura = localStorage.getItem("altura");
 
     $("#peso").val(peso);
     $("#altura").val(altura);
@@ -93,59 +46,23 @@ window.onload = function() {
 
     //Carregar valores das macros e os alimentos do atual dia
 
-    for(i=0; i<4; i++) {
-      $(".counter").eq(0).children().eq(i).html(resumoDia.t1Macros[i]);
-      $(".counter").eq(1).children().eq(i).html(resumoDia.t2Macros[i]);
-      $(".counter").eq(2).children().eq(i).html(resumoDia.t3Macros[i]);
-      $(".counter").eq(3).children().eq(i).html(resumoDia.t4Macros[i]);
+    for(i=0; i<$(".box").children().length; i++) {
+      var ref = JSON.parse(localStorage.getItem("Ref"+i.toString()));
+      $(".counter").eq(i).children().eq(0).html(ref.cal);
+      $(".counter").eq(i).children().eq(1).html(ref.lip);
+      $(".counter").eq(i).children().eq(2).html(ref.carb);
+      $(".counter").eq(i).children().eq(3).html(ref.prot);
+
+      for(j=0; j<parseInt(localStorage.getItem("tam"+i.toString())); j++) {
+        var alim = localStorage.getItem("t"+i+"alimento"+j);
+        var id = localStorage.getItem("t"+i+"alimento"+j+"id");
+        var qty = localStorage.getItem("t"+i+"alimento"+j+"qty");
+        createAlimElem(alim,i,qty,id);
+       }
     }
 
-    for(i=0; i<resumoDia.tam1; i++) {
-      var y = document.createElement("p");
-      y.setAttribute("class", "alimento");
-
-      var z = document.createTextNode(localStorage.getItem("t1alimento"+i));
-      y.appendChild(z);
-
-      var d = document.getElementById("form0");
-      d.appendChild(y);
-     }
-
-     for(i=0; i<resumoDia.tam2; i++) {
-       var y = document.createElement("p");
-       y.setAttribute("class", "alimento");
-
-       var z = document.createTextNode(localStorage.getItem("t2alimento"+i));
-       y.appendChild(z);
-
-       var d = document.getElementById("form1");
-       d.appendChild(y);
-      }
-
-      for(i=0; i<resumoDia.tam3; i++) {
-        var y = document.createElement("p");
-        y.setAttribute("class", "alimento");
-
-        var z = document.createTextNode(localStorage.getItem("t3alimento"+i));
-        y.appendChild(z);
-
-        var d = document.getElementById("form2");
-        d.appendChild(y);
-       }
-
-       for(i=0; i<resumoDia.tam4; i++) {
-         var y = document.createElement("p");
-         y.setAttribute("class", "alimento");
-
-         var z = document.createTextNode(localStorage.getItem("t4alimento"+i));
-         y.appendChild(z);
-
-         var d = document.getElementById("form3");
-         d.appendChild(y);
-        }
-
-      counterTotal();
-  }else {
+    counterTotal();
+  }/*else {
     db.transaction(function (tx) {
       tx.executeSql("INSERT INTO HISTORICO(Tipo, Data, Calorias, Lipidos, Carboidratos, Proteinas) VALUES ('1',"+JSON.stringify(data)+","+resumoDia.t1Macros[0]+","+resumoDia.t1Macros[1]+","+resumoDia.t1Macros[2]+","+resumoDia.t1Macros[3]+");");
       tx.executeSql("INSERT INTO HISTORICO(Tipo, Data, Calorias, Lipidos, Carboidratos, Proteinas) VALUES ('2',"+JSON.stringify(data)+","+resumoDia.t2Macros[0]+","+resumoDia.t2Macros[1]+","+resumoDia.t2Macros[2]+","+resumoDia.t2Macros[3]+");");
@@ -171,6 +88,6 @@ window.onload = function() {
     $("#altura").val(altura);
     macros();
     imc();
-  }
+  }*/
   ola();
 }

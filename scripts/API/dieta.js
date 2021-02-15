@@ -13,10 +13,10 @@ function macros() {
   $("#carboidratos").html(carboidratos);
   $("#proteinas").html(proteinas);
 
-  $("#ct").children().eq(0).html("Calorias (" +calorias+")");
-  $("#ct").children().eq(1).html("Lipidos (" +lipidos+")");
-  $("#ct").children().eq(2).html("Carboidratos (" +carboidratos+")");
-  $("#ct").children().eq(3).html("Proteinas (" +proteinas+")");
+  $(".counterTotal").eq(0).children().eq(3).html(proteinas.toFixed(2));
+  $(".counterTotal").eq(1).children().eq(3).html(carboidratos.toFixed(2));
+  $(".counterTotal").eq(2).children().eq(3).html(calorias.toFixed(2));
+  $(".counterTotal").eq(3).children().eq(3).html(lipidos.toFixed(2));
 }
 
 //Calcula o IMC consoante os dados de peso e altura
