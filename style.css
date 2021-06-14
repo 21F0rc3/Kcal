@@ -1,3 +1,54 @@
+.circular{
+  height:20vw;
+  width: 20vw;
+  position: relative;
+  border:solid black 0.2vw;
+  border-radius: 200vw;
+}
+
+.circular .inner{
+  position: absolute;
+  z-index: 6;
+  top: 50%;
+  left: 50%;
+  height: 18vw;
+  width: 18vw;
+  margin: -9vw 0 0 -9vw;
+  background: white;
+  border-radius: 100%;
+}
+
+.circular .number{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  z-index:10;
+}
+
+.circular .bar{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  -webkit-border-radius: 100%;
+  clip: rect(0vw, 20vw, 20vw, 10vw);
+}
+
+.circle .bar .progress{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-border-radius: 100%;
+  clip: rect(0vw, 10vw, 20vw, 0vw);
+  background: #4158d0;
+}
+
+.circle .right {
+  transform: rotate(180deg);
+  z-index:3;
+}
+
 .box {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

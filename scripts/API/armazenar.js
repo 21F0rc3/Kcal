@@ -91,7 +91,7 @@ window.onload = function() {
   }*/
   ola();
 
-  var cal = $(".counterTotal").eq(0).children().eq(1).html();
-  var tot = $(".counterTotal").eq(0).children().eq(3).html();
+  var cal = $(".counterTotal").eq(2).children().eq(1).html();
+  var tot = $(".counterTotal").eq(2).children().eq(3).html();
   graphInicio(cal, tot);
 }
