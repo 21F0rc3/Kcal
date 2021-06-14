@@ -12,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha/Chart.min.js"></script>
     <script src="scripts/API/graphAlimento.js"></script>
     <script src="scripts/API/graph.js"></script>
+    <script src="scripts/API/graphInicio.js"></script>
 
     <!-- General -->
     <link rel="stylesheet" href="style.css">
@@ -51,10 +52,8 @@
           </div>
         </div>
         <div class="mx-auto d-block col-4" onmouseover="showPlus()" onmouseout="hidePlus()" onclick="displayContador()">
-          <img id="plus" src="../assets/plus.png" class="img-fluid rounded" style="display:none;">
-          <img src="../assets/Circle.png" class="img-fluid rounded image">
-          <div class="counterTotal centered image">
-            <div style="font-size: 4vw;">Calorias</div>
+          <div class="counterTotal">
+            <div style="font-size: 2vw;">Calorias</div>
             <div style="display: inline; font-size: 2vw;">--</div>
             <div style="display: inline; font-size: 2vw;">/</div>
             <div style="display: inline; font-size: 2vw;">--</div>
@@ -77,66 +76,238 @@
     </div>
     <div id="contador" style="display:none">
       <div class="box">
-        <div tag="Refeição 1">
-          <div class="row justify-content-between mx-0">
-            <div style="font-size: 1.5vw; display: inline-block; color: white; background-color: #2d3339;">#Refeição 1</div>
-            <div style="display: inline-block; color: white;">
-              <div class="reset" onclick="reset(0)" style="font-size: 1.5vw; display: inline-block; background-color: red;">Reset</div>
-              <div class="" data-toggle="modal" data-target="#Adicionar0" style="font-size: 1.5vw; display: inline-block; background-color: green;">Add</div>
+        <div id="Ref1" tag="Refeição 1" class="container">
+          <div class="col-12" data-toggle="modal" data-target="#Adicionar0">
+            <div id="form0">
+              <table>
+                <thead>
+                  <th scope="col">Calorias</td>
+                  <th scope="col">Lipidos</td>
+                  <th scope="col">Carboidratos</td>
+                  <th scope="col">Proteinas</td>
+                </thead>
+                <tbody>
+                  <tr class="counter">
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-          <div id="form0" style="border-bottom: 0.3vw solid #2d3339; border-left: 0.3vw solid #2d3339; border-right: 0.3vw solid #2d3339;">
-            <table class="table">
-              <thead class="table-dark">
-                <th scope="col">Calorias</td>
-                <th scope="col">Lipidos</td>
-                <th scope="col">Carboidratos</td>
-                <th scope="col">Proteinas</td>
-              </thead>
-              <tbody>
-                <tr class="counter">
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="modal fade" id="Adicionar0" tabindex="-1" role="dialog" aria-labelledby="#Adicionar0" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <input class="form-control offset-2 mt-2 col-3 justify-content-start" id="search0" type="text" placeholder="" onkeyup="search(0)" style="font-size: 2vw;">
-                  <div class="chart-container justify-content-end" style="width:10vw">
-                    <canvas id="graphAlim0"></canvas>
-                  </div>
-                </div>
-                <div class="modal-body">
-                  <div>
-                    <table class="table-alimentos">
-                      <tbody><tr>
-                        <th>Id</th>
-                        <th>Alimento</th>
-                        <th>Calorias</th>
-                        <th>Lipidos</th>
-                        <th>Carboidratos</th>
-                        <th>Proteinas</th>
-                     </tr></tbody>
-                   </table>
-                 </div>
-                 <form class="qt" style="display:none;">
-                   <p>Quantidade?<input type="number" value=100 class="num"></p>
-                 </form>
-                </div>
-                <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary col-2" data-dismiss="modal" style="font-size: 2vw;">Fechar</button>
-                 <button type="button" class="col-2" onclick="adicionarAlimento(0)" data-dismiss="modal" style="font-size: 2vw; text-align: center;">Adicionar</button>
-                </div>
-             </div>
-           </div>
+        </div>
+        <div id="Ref2" tag="Refeição 2" class="container">
+          <div class="col-12" data-toggle="modal" data-target="#Adicionar1">
+            <div id="form1">
+              <table>
+                <thead>
+                  <th scope="col">Calorias</td>
+                  <th scope="col">Lipidos</td>
+                  <th scope="col">Carboidratos</td>
+                  <th scope="col">Proteinas</td>
+                </thead>
+                <tbody>
+                  <tr class="counter">
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
+        <div id="Ref3" tag="Refeição 3" class="container">
+          <div class="col-12" data-toggle="modal" data-target="#Adicionar2">
+            <div id="form2">
+              <table>
+                <thead>
+                  <th scope="col">Calorias</td>
+                  <th scope="col">Lipidos</td>
+                  <th scope="col">Carboidratos</td>
+                  <th scope="col">Proteinas</td>
+                </thead>
+                <tbody>
+                  <tr class="counter">
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div id="Ref4" tag="Refeição 4" class="container">
+          <div class="col-12" data-toggle="modal" data-target="#Adicionar3">
+            <div id="form3">
+              <table>
+                <thead>
+                  <th scope="col">Calorias</td>
+                  <th scope="col">Lipidos</td>
+                  <th scope="col">Carboidratos</td>
+                  <th scope="col">Proteinas</td>
+                </thead>
+                <tbody>
+                  <tr class="counter">
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="Adicionar0" tabindex="-1" role="dialog" aria-labelledby="#Adicionar0" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+          <div class="modal-content">
+            <div class="modal-header sheet">
+              <input class="form-control col-3 justify-content-start" id="search0" type="text" placeholder="Alimentos..." onkeyup="search(0)" style="font-size: 2vw;">
+              <form class="qt" style="display:none;">
+                <div>Quantidade?<input type="number" value=100 class="num"></div>
+              </form>
+              <div class="justify-content-end chart-container" style="height:7vh">
+                <canvas id="graphAlim0"></canvas>
+              </div>
+            </div>
+            <div class="modal-body" style="padding: 0">
+              <div>
+                <table class="table">
+                  <thead class="table-dark" style="position: sticky; top: 0;">
+                    <tr>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Id</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Alimento</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Calorias</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Lipidos</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Carboidratos</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Proteinas</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-alimentos"></tbody>
+               </table>
+             </div>
+            </div>
+            <div class="modal-footer sheet">
+             <button type="button" class="btn btn-secondary col-2" data-dismiss="modal" style="font-size: 1vw;">Fechar</button>
+             <button type="button" class="col-2" onclick="adicionarAlimento(0)" data-dismiss="modal" style="font-size: 1vw; text-align: center;">Adicionar</button>
+            </div>
+         </div>
+       </div>
+      </div>
+      <div class="modal fade" id="Adicionar1" tabindex="-1" role="dialog" aria-labelledby="#Adicionar1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+          <div class="modal-content">
+            <div class="modal-header sheet">
+              <input class="form-control col-3 justify-content-start" id="search1" type="text" placeholder="Alimentos..." onkeyup="search(1)" style="font-size: 2vw;">
+              <form class="qt" style="display:none;">
+                <div>Quantidade?<input type="number" value=100 class="num"></div>
+              </form>
+              <div class="justify-content-end chart-container" style="height:7vh">
+                <canvas id="graphAlim1"></canvas>
+              </div>
+            </div>
+            <div class="modal-body" style="padding: 0">
+              <div>
+                <table class="table">
+                  <thead class="table-dark" style="position: sticky; top: 0;">
+                    <tr>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Id</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Alimento</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Calorias</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Lipidos</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Carboidratos</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Proteinas</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-alimentos"></tbody>
+               </table>
+             </div>
+            </div>
+            <div class="modal-footer sheet">
+             <button type="button" class="btn btn-secondary col-2" data-dismiss="modal" style="font-size: 1vw;">Fechar</button>
+             <button type="button" class="col-2" onclick="adicionarAlimento(1)" data-dismiss="modal" style="font-size: 1vw; text-align: center;">Adicionar</button>
+            </div>
+         </div>
+       </div>
+      </div>
+      <div class="modal fade" id="Adicionar2" tabindex="-1" role="dialog" aria-labelledby="#Adicionar2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+          <div class="modal-content">
+            <div class="modal-header sheet">
+              <input class="form-control col-3 justify-content-start" id="search2" type="text" placeholder="Alimentos..." onkeyup="search(2)" style="font-size: 2vw;">
+              <form class="qt" style="display:none;">
+                <div>Quantidade?<input type="number" value=100 class="num"></div>
+              </form>
+              <div class="justify-content-end chart-container" style="height:7vh">
+                <canvas id="graphAlim2"></canvas>
+              </div>
+            </div>
+            <div class="modal-body" style="padding: 0">
+              <div>
+                <table class="table">
+                  <thead class="table-dark" style="position: sticky; top: 0;">
+                    <tr>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Id</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Alimento</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Calorias</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Lipidos</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Carboidratos</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Proteinas</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-alimentos"></tbody>
+               </table>
+             </div>
+            </div>
+            <div class="modal-footer sheet">
+             <button type="button" class="btn btn-secondary col-2" data-dismiss="modal" style="font-size: 1vw;">Fechar</button>
+             <button type="button" class="col-2" onclick="adicionarAlimento(2)" data-dismiss="modal" style="font-size: 1vw; text-align: center;">Adicionar</button>
+            </div>
+         </div>
+       </div>
+      </div>
+      <div class="modal fade" id="Adicionar3" tabindex="-1" role="dialog" aria-labelledby="#Adicionar3" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+          <div class="modal-content">
+            <div class="modal-header sheet">
+              <input class="form-control col-3 justify-content-start" id="search3" type="text" placeholder="Alimentos..." onkeyup="search(3)" style="font-size: 2vw;">
+              <form class="qt" style="display:none;">
+                <div>Quantidade?<input type="number" value=100 class="num"></div>
+              </form>
+              <div class="justify-content-end chart-container" style="height:7vh">
+                <canvas id="graphAlim3"></canvas>
+              </div>
+            </div>
+            <div class="modal-body" style="padding: 0">
+              <div>
+                <table class="table">
+                  <thead class="table-dark" style="position: sticky; top: 0;">
+                    <tr>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Id</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Alimento</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Calorias</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Lipidos</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Carboidratos</th>
+                      <th class="table-dark" scope="col" style="position: sticky; top: 0;">Proteinas</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-alimentos"></tbody>
+               </table>
+             </div>
+            </div>
+            <div class="modal-footer sheet">
+             <button type="button" class="btn btn-secondary col-2" data-dismiss="modal" style="font-size: 1vw;">Fechar</button>
+             <button type="button" class="col-2" onclick="adicionarAlimento(3)" data-dismiss="modal" style="font-size: 1vw; text-align: center;">Adicionar</button>
+            </div>
+         </div>
+       </div>
       </div>
     </div>
     <div id="estatisticas" style="display:none">

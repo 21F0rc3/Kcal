@@ -3,14 +3,14 @@
 function search(nr) {
   var filter = $("#search"+nr).val().toUpperCase();
 
-  var tam = $(".table-alimentos").eq(nr).children().eq(0).find("tr").length - 1;
+  var tam = $(".table-alimentos").eq(nr).find("tr").length;
 
-  for(i=1; i<=tam; i++) {
-    var txtValue = $(".table-alimentos").eq(nr).children().eq(0).find("tr").eq(i).text();
+  for(i=0; i<tam; i++) {
+    var txtValue = $(".table-alimentos").eq(nr).find("tr").eq(i).text();
     if(txtValue.toUpperCase().indexOf(filter) > -1) {
-      $(".table-alimentos").eq(nr).children().eq(0).find("tr").eq(i).show();
+      $(".table-alimentos").eq(nr).find("tr").eq(i).show();
     }else{
-      $(".table-alimentos").eq(nr).children().eq(0).find("tr").eq(i).hide();
+      $(".table-alimentos").eq(nr).find("tr").eq(i).hide();
     }
   }
 }

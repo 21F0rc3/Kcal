@@ -19,6 +19,30 @@ tr, td {
   font-size: 1.5vw;
 }
 
+.file {
+  background-color: rgb(255, 127, 39);
+  border: 2vw solid rgb(255, 127, 39);
+  border-top-right-radius: 1vw;
+  border-bottom-right-radius: 1vw;
+  border-bottom-right-radius: 1vw;
+}
+
+.sheet {
+  background-color: gray;
+}
+
+#Ref1:hover {
+  opacity: 0.5;
+}
+
+.table-alimentos {
+  /*background-color: white;*/
+}
+
+body {
+  background-color: ;
+}
+
 @media screen and (max-width: 600px) {
   .txt{
     display: none;

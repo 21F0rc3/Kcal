@@ -90,4 +90,8 @@ window.onload = function() {
     imc();
   }*/
   ola();
+
+  var cal = $(".counterTotal").eq(0).children().eq(1).html();
+  var tot = $(".counterTotal").eq(0).children().eq(3).html();
+  graphInicio(cal, tot);
 }

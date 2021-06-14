@@ -33,3 +33,8 @@ function hidePlus() {
   $(".image").show();
   $("#plus").hide();
 }
+
+//Funcao que destaca algo quando e passado o mouse por cima
+function destaque() {
+  document.getElementById("Ref1").style.opacity=0.5;
+}

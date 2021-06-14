@@ -334,5 +334,13 @@
     "lipidos": 4.6,
     "carboidratos": 73.3,
     "proteinas": 8.8 
+  },
+  {
+    "id": 43,
+    "alimento": "Alface",
+    "calorias": 15,
+    "lipidos": 0.2,
+    "carboidratos": 2.9,
+    "proteinas": 1.4 
   }
 ]
