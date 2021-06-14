@@ -1,4 +1,4 @@
-function ola() {
+function loadHistorico() {
   var db = openDatabase("Historico.db", "1.0", "Historico de Macros", 2 * 1024 * 1024);
 
   var cal = new Array();

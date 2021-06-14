@@ -89,7 +89,7 @@ window.onload = function() {
     macros();
     imc();
   }*/
-  ola();
+  loadHistorico();
 
   var cal = $(".counterTotal").eq(2).children().eq(1).html();
   var tot = $(".counterTotal").eq(2).children().eq(3).html();
